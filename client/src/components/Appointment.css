@@ -1,0 +1,231 @@
+.appointment-section {
+  background: linear-gradient(to bottom right, #f0f9ff, #e0f7fa);
+  padding: 4rem 1rem;
+}
+
+.appointment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Header */
+.appointment-header .header-content {
+  text-align: center;
+}
+
+.appointment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e0f2f1;
+  color: #00695c;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+}
+
+.appointment-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-top: 1rem;
+}
+
+.appointment-subtitle {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-top: 0.5rem;
+}
+
+/* Quick Contact */
+.quick-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.contact-value {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+/* Features */
+.appointment-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-icon i {
+  font-size: 1.8rem;
+  color: #0d9488;
+  margin-bottom: 1rem;
+}
+
+/* Consultation Types */
+.consultation-types .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.consultation-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.consultation-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  color: #1a202c;
+}
+
+.consultation-card.blue {
+  border-top: 5px solid #3b82f6;
+}
+
+.consultation-card.red {
+  border-top: 5px solid #ef4444;
+}
+
+.consultation-card.green {
+  border-top: 5px solid #10b981;
+}
+
+.consultation-card.purple {
+  border-top: 5px solid #8b5cf6;
+}
+
+.consultation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.consultation-price {
+  color: #4b5563;
+}
+
+.consultation-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.consultation-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Booking Section */
+.booking-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.booking-info h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.booking-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benefit-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.emergency-notice {
+  background: #fff4f4;
+  padding: 1rem;
+  border-left: 4px solid #ef4444;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+.emergency-notice p {
+  margin: 0;
+  color: #991b1b;
+}
+
+/* Calendly */
+.calendly-container {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  min-height: 720px;
+}
+
+.calendly-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.loading-spinner {
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #0d9488;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
