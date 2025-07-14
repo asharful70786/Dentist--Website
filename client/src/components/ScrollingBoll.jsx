@@ -8,7 +8,7 @@ const ScrollingBoll = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-white via-blue-50 to-teal-50 text-gray-900 py-24 px-6 md:px-12 overflow-hidden">
+    <section className="relative  h-[50%] bg-gradient-to-br from-white via-blue-50 to-teal-50 text-gray-900 py-24 px-6 md:px-12 overflow-hidden">
       {/* Light Background Glows */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute -bottom-40 -left-40 w-72 h-72 bg-teal-100 rounded-full blur-3xl opacity-30"></div>

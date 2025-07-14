@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-
   const navigate = useNavigate();
-
 
   // Handle scroll effect
   useEffect(() => {
@@ -20,42 +17,55 @@ function NavBar() {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', path: '/' },
     { 
       name: 'Services', 
-      href: '/services',
+      path: '/services',
       dropdown: [
-        { name: 'Cosmetic Dentistry', href: '/cosmetic', icon: '✨' },
-        { name: 'Dental Implants', href: '/implants', icon: '🦷' },
-        { name: 'Orthodontics', href: '/orthodontics', icon: '📐' },
-        { name: 'Pediatric Care', href: '/pediatric', icon: '👶' },
-        { name: 'Root Canal', href: '/root-canal', icon: '🔬' },
-        { name: 'Laser Dentistry', href: '/laser', icon: '⚡' }
+        { name: 'Cosmetic Dentistry', path: '/cosmetic', icon: '✨' },
+        { name: 'Dental Implants', path: '/implants', icon: '🦷' },
+        { name: 'Orthodontics', path: '/orthodontics', icon: '📐' },
+        { name: 'Pediatric Care', path: '/pediatric', icon: '👶' },
+        { name: 'Root Canal', path: '/root-canal', icon: '🔬' },
+        { name: 'Laser Dentistry', path: '/laser', icon: '⚡' }
       ]
     },
-    { name: 'About', href: '/about' },
-     { name: 'Gallery', href: '/gallery'   },
-    { name: 'Contact', href: '/contact' , 
+    { name: 'About', path: '/about' },
+    { name: 'Gallery', path: '/gallery' },
+    { 
+      name: 'Contact', 
+      path: '/contact',
       dropdown: [
-        { name: 'Location', href: '/location' },
-         { name: 'Contact', href: '/contact' },
-      
+        { name: 'Location', path: '/location' },
+        { name: 'Contact', path: '/contact' },
       ]
-     }
+    }
   ];
 
+  const handleDropdownToggle = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
   return (
-    <header>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100' 
-          : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <header className="w-full">
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100' 
+            : 'bg-transparent'
+        }`}
+        aria-label="Main navigation"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="flex items-center justify-between h-20">
             
             {/* Logo Section */}
-            <div className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-blue-700 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
                   <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,7 +86,7 @@ function NavBar() {
                   Excellence in Care
                 </p>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -84,16 +94,17 @@ function NavBar() {
                 <div 
                   key={index} 
                   className="relative group"
-                  onMouseEnter={() => setActiveDropdown(item.dropdown ? index : null)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => item.dropdown && setActiveDropdown(index)}
+                  onMouseLeave={() => item.dropdown && setActiveDropdown(null)}
                 >
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.path}
                     className={`px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center space-x-1 hover:scale-105 ${
                       isScrolled 
                         ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50' 
                         : 'text-black hover:text-blue-200 hover:bg-white/10'
                     }`}
+                    onClick={() => setActiveDropdown(null)}
                   >
                     <span>{item.name}</span>
                     {item.dropdown && (
@@ -103,21 +114,25 @@ function NavBar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     )}
-                  </a>
+                  </Link>
 
                   {/* Dropdown Menu */}
                   {item.dropdown && (
-                    <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-                      activeDropdown === index 
-                        ? 'opacity-100 visible transform translate-y-0' 
-                        : 'opacity-0 invisible transform -translate-y-2'
-                    }`}>
+                    <div 
+                      className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
+                        activeDropdown === index 
+                          ? 'opacity-100 visible transform translate-y-0' 
+                          : 'opacity-0 invisible transform -translate-y-2'
+                      }`}
+                      aria-hidden={activeDropdown !== index}
+                    >
                       <div className="p-2">
                         {item.dropdown.map((dropItem, dropIndex) => (
-                          <a
+                          <Link
                             key={dropIndex}
-                            href={dropItem.href}
+                            to={dropItem.path}
                             className="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group"
+                            onClick={() => setActiveDropdown(null)}
                           >
                             <span className="text-lg group-hover:scale-110 transition-transform duration-200">
                               {dropItem.icon}
@@ -126,7 +141,7 @@ function NavBar() {
                             <svg className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -145,6 +160,7 @@ function NavBar() {
                     ? 'text-red-600 hover:text-red-700 hover:bg-red-50' 
                     : 'text-red-600 hover:text-white hover:bg-red-500/20'
                 }`}
+                aria-label="Emergency contact"
               >
                 <svg className="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -153,11 +169,15 @@ function NavBar() {
               </a>
 
               {/* Book Appointment Button */}
-              <button className="hidden md:flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => navigate('/appointment')}
+                className="hidden md:flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                aria-label="Book appointment"
+              >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V6a2 2 0 012-2h2a2 2 0 012 2v1m-6 0h6m-6 0l-.5 8.5A2 2 0 0013.5 21h-3A2 2 0 019 19.5L8.5 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V6a2 2 0 012-2h2a2 2 0 012 2v1m-6 0h6m-6 0l-.5 8.5A2 2 0 0013.5 21h-3A2 2 0 009 19.5L8.5 7" />
                 </svg>
-                <span onClick={() => navigate('/appointment')}>Book Now</span>
+                <span>Book Now</span>
               </button>
 
               {/* Mobile Menu Button */}
@@ -168,6 +188,8 @@ function NavBar() {
                     ? 'text-gray-700 hover:bg-gray-100' 
                     : 'text-white hover:bg-white/10'
                 }`}
+                aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 <svg className={`w-6 h-6 transition-transform duration-300 ${
                   isMobileMenuOpen ? 'rotate-90' : ''
@@ -185,41 +207,58 @@ function NavBar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-        isMobileMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
-      }`}>
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)}></div>
+      <div 
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
+          isMobileMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        }`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <div 
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm" 
+          onClick={closeMobileMenu}
+          aria-label="Close mobile menu"
+        ></div>
         
-        <div className={`absolute top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
+        <div 
+          className={`absolute top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
           <div className="p-6 pt-24">
             {/* Mobile Navigation Items */}
-            <div className="space-y-2">
+            <nav className="space-y-2" aria-label="Mobile navigation">
               {navItems.map((item, index) => (
                 <div key={index}>
-                  <a
-                    href={item.href}
-                    className="flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl font-medium transition-all duration-200"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  <button
+                    className={`flex items-center justify-between w-full px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl font-medium transition-all duration-200 ${
+                      !item.dropdown ? 'hover:bg-blue-50' : ''
+                    }`}
+                    onClick={() => item.dropdown ? handleDropdownToggle(index) : closeMobileMenu()}
+                    aria-expanded={item.dropdown && activeDropdown === index}
                   >
                     <span>{item.name}</span>
                     {item.dropdown && (
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-4 h-4 transition-transform ${
+                        activeDropdown === index ? 'rotate-90' : ''
+                      }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     )}
-                  </a>
+                  </button>
                   
                   {/* Mobile Dropdown */}
                   {item.dropdown && (
-                    <div className="ml-4 mt-2 space-y-1">
+                    <div 
+                      className={`ml-4 mt-2 space-y-1 ${
+                        activeDropdown === index ? 'block' : 'hidden'
+                      }`}
+                    >
                       {item.dropdown.map((dropItem, dropIndex) => (
                         <Link
                           key={dropIndex}
-                          to={dropItem.href}
+                          to={dropItem.path}
                           className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={closeMobileMenu}
                         >
                           <span>{dropItem.icon}</span>
                           <span>{dropItem.name}</span>
@@ -229,13 +268,14 @@ function NavBar() {
                   )}
                 </div>
               ))}
-            </div>
+            </nav>
 
             {/* Mobile CTA Buttons */}
             <div className="mt-8 space-y-4">
               <a
                 href="tel:+1234567890"
                 className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-red-50 text-red-600 rounded-xl font-semibold hover:bg-red-100 transition-all duration-200"
+                onClick={closeMobileMenu}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -243,7 +283,13 @@ function NavBar() {
                 <span>Emergency Call</span>
               </a>
               
-              <button className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg">
+              <button 
+                onClick={() => {
+                  navigate('/appointment');
+                  closeMobileMenu();
+                }}
+                className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg"
+              >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -258,4 +304,4 @@ function NavBar() {
   );
 }
 
-export default NavBar
+export default NavBar;

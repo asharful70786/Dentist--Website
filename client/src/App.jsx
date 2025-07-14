@@ -11,10 +11,13 @@ import Testimonial from "./components/Testimonial"
 import Location from "./components/Location"
 import Gallery from "./components/Gallery"
 import Appointment from "./components/Appointment"
+import Footer from "./components/Footer"
+import ScrollToTop from "./Pages/ScrollToTop"
 function App() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center w-full">
       <NavBar/>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<MainPages/>} />
         <Route path="/about" element={<About/>} />
@@ -25,6 +28,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/appointment" element={<Appointment/>} />
       </Routes>
+       <Footer  />
     </div>
   )
 }
