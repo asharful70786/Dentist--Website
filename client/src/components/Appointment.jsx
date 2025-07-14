@@ -92,7 +92,7 @@ function Appointment() {
             </span>
             <h1 className="appointment-title">Schedule Your Child's Visit</h1>
             <p className="appointment-subtitle">
-              Choose a convenient time slot and book your appointment with Dr. Amit Roy. We're here to provide the best pediatric care for your child.
+              Choose a convenient time slot and book your appointment with Dr.smile  .  We're here to provide the best pediatric care for your child.
             </p>
           </div>
 
