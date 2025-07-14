@@ -13,6 +13,12 @@ import Gallery from "./components/Gallery"
 import Appointment from "./components/Appointment"
 import Footer from "./components/Footer"
 import ScrollToTop from "./Pages/ScrollToTop"
+import Cosmetic from "./components/Cosmetic"
+import Implants from "./components/Implants"
+import Orthodontics from "./components/Orthodontics"
+import Pediatric from "./components/Pediatric"
+import Root_canal from "./components/Root-canal"
+import Laser from "./components/Laser"
 function App() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center w-full">
@@ -27,6 +33,16 @@ function App() {
         <Route path="/location" element={<Location/>} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/appointment" element={<Appointment/>} />
+
+        {/* services nested Routes */}
+        <Route path="cosmetic" element={<Cosmetic/>} />
+         <Route path="implants" element={<Implants/>} />
+          <Route path="orthodontics" element={<Orthodontics/>} />
+           <Route path="pediatric" element={<Pediatric/>} />
+            <Route path="root-canal" element={<Root_canal/>} />
+             <Route path="laser" element={<Laser/>} />
+            
+        
       </Routes>
        <Footer  />
     </div>

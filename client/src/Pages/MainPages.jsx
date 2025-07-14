@@ -5,6 +5,7 @@ import Services from './Services'
 import Testimonial from '../components/Testimonial'
 import Location from '../components/Location'
 import Quick_call from '../components/Quickcall'
+import FAQSection from '../components/FAQSection'
 
 
 function MainPages() {
@@ -14,6 +15,7 @@ function MainPages() {
    <AboutSection/>
    <Services/>
    <Quick_call/>
+   <FAQSection/>
    <Testimonial/>
    <Location/>
   
