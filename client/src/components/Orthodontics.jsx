@@ -46,7 +46,7 @@ function Orthodontics() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
           <div className="rounded-3xl overflow-hidden shadow-lg">
             <img
-              src="/OrthodonticTreatment.jpg"
+              src="https://images.pexels.com/photos/6528909/pexels-photo-6528909.jpeg"
               alt="Benefits of Orthodontic Treatment"
               className="w-full h-auto object-cover"
             />

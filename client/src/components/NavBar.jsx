@@ -22,12 +22,12 @@ function NavBar() {
       name: 'Services', 
       path: '/services',
       dropdown: [
-        { name: 'Cosmetic Dentistry', path: '/cosmetic', icon: '✨' },
-        { name: 'Dental Implants', path: '/implants', icon: '🦷' },
-        { name: 'Orthodontics', path: '/orthodontics', icon: '📐' },
-        { name: 'Pediatric Care', path: '/pediatric', icon: '👶' },
-        { name: 'Root Canal', path: '/root-canal', icon: '🔬' },
-        { name: 'Laser Dentistry', path: '/laser', icon: '⚡' }
+        { name: 'Cosmetic Dentistry', path: '/cosmetic' },
+        { name: 'Dental Implants', path: '/implants'},
+        { name: 'Orthodontics', path: '/orthodontics' },
+        { name: 'Pediatric Care', path: '/pediatric'  },
+        { name: 'Root Canal', path: '/root-canal' },
+        { name: 'Laser Dentistry', path: '/laser' }
       ]
     },
     { name: 'About', path: '/about' },
@@ -119,7 +119,7 @@ function NavBar() {
                   {/* Dropdown Menu */}
                   {item.dropdown && (
                     <div 
-                      className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
+                      className={`absolute top-full left-0 mt-2 w-64 bg-white  rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
                         activeDropdown === index 
                           ? 'opacity-100 visible transform translate-y-0' 
                           : 'opacity-0 invisible transform -translate-y-2'
@@ -183,7 +183,7 @@ function NavBar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
+                className={`lg:hidden p-2 rounded-xl transition-all duration-300 bg-black ${
                   isScrolled 
                     ? 'text-gray-700 hover:bg-gray-100' 
                     : 'text-white hover:bg-white/10'

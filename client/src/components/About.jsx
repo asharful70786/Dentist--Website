@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import QuickCall from './Quickcall'
 
 function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -220,11 +221,7 @@ function About() {
             </div>
 
             {/* Call to Action */}
-            <div className="mt-8 text-center">
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                Schedule a Consultation
-              </button>
-            </div>
+           
           </div>
         </div>
 
@@ -252,6 +249,7 @@ function About() {
           </div>          
         </div>
       </div>
+      <QuickCall />
     </section>
   );
 } 
