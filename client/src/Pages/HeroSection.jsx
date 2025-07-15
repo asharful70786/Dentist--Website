@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const heroImages = [
   "/Home1.jpg",
-  "https://images.pexels.com/photos/312492/pexels-photo-312492.jpeg",
-  "https://images.pexels.com/photos/7244736/pexels-photo-7244736.jpeg",
+  "/heroImg2.jpg",
+  "heroImg3.jpg",
 ];
 
 export default function HeroSection() {

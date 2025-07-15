@@ -4,7 +4,7 @@ const services = [
   {
     title: "Cosmetic Dentistry",
     description: "Transform your smile with advanced whitening, porcelain veneers, and aesthetic dental corrections for a radiant, confident appearance.",
-    image: "https://images.unsplash.com/photo-1684607631747-045ecfeeb4c7?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/CosmeticDentistry.avif",
     features: ["Teeth Whitening", "Porcelain Veneers", "Smile Makeover"],
     duration: "1-3 visits",
     category: "Aesthetic"
@@ -12,7 +12,7 @@ const services = [
   {
     title: "Dental Implants",
     description: "Restore missing teeth with titanium implants that provide permanent, natural-looking replacements with superior functionality.",
-    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/DentalImplants.avif",
     features: ["Single Implants", "Full Mouth Restoration", "Implant Crowns"],
     duration: "3-6 months",
     category: "Restorative"
@@ -20,7 +20,7 @@ const services = [
   {
     title: "Orthodontics",
     description: "Achieve perfectly aligned teeth using traditional braces, clear aligners, or Invisalign for a straighter, healthier smile.",
-    image: "https://images.unsplash.com/photo-1667133295315-820bb6481730?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/Orthodontics.avif",
     features: ["Metal Braces", "Clear Aligners", "Invisalign"],
     duration: "12-24 months",
     category: "Corrective"
@@ -28,7 +28,7 @@ const services = [
   {
     title: "Pediatric Dentistry",
     description: "Specialized, gentle dental care for children with a focus on prevention, education, and creating positive dental experiences.",
-    image: "https://images.pexels.com/photos/6502555/pexels-photo-6502555.jpeg",
+    image: "/PediatricDentistry.jpg",
     features: ["Preventive Care", "Fluoride Treatments", "Sealants"],
     duration: "30-45 mins",
     category: "Preventive"
@@ -36,7 +36,7 @@ const services = [
   {
     title: "Root Canal Treatment",
     description: "Save infected or damaged teeth using advanced endodontic techniques with minimal discomfort and maximum success rates.",
-    image: "https://plus.unsplash.com/premium_photo-1674575270991-653fb6bfc1bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/RootCanal.jpg",
     features: ["Pain Relief", "Tooth Preservation", "Advanced Techniques"],
     duration: "1-2 visits",
     category: "Therapeutic"
@@ -44,7 +44,7 @@ const services = [
   {
     title: "Laser Dentistry",
     description: "Experience modern, minimally invasive laser treatments for soft tissue procedures, cavity preparation, and periodontal therapy.",
-    image: "https://plus.unsplash.com/premium_photo-1677174625109-96a5d95f39c2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/LaserDentistry.avif",
     features: ["Soft Tissue Treatment", "Cavity Preparation", "Gum Therapy"],
     duration: "30-60 mins",
     category: "Advanced"

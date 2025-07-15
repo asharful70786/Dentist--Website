@@ -167,7 +167,7 @@ const AboutSection = () => {
             <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-500">
               <div className="aspect-[4/5] relative">
                 <img
-                  src="https://smileset.com/cdn/shop/files/iStock-1464444576_2560px.jpg?v=1735331519&width=1920"
+                  src="/bannerImg.webp"
                   alt="Professional dental aligner treatment showcasing Smile Dental's advanced technology and patient care"
                   className="w-full h-full object-cover"
                 />

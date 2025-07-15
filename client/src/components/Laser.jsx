@@ -191,7 +191,7 @@ function Laser() {
       <div className="bg-gradient-to-br from-blue-600 to-purple-700 p-8 rounded-3xl shadow-2xl">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-6">
           <img
-            src="https://images.pexels.com/photos/6529111/pexels-photo-6529111.jpeg"
+            src="/LaserTreatment.jpg"
             alt="Laser Dentistry Equipment"
             className="w-full rounded-xl shadow-lg"
           />

@@ -29,7 +29,7 @@ function Root_canal() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://images.pexels.com/photos/6502620/pexels-photo-6502620.jpeg"
+              src="/RootCanal.jpg"
               alt="Root Canal Treatment"
               className="rounded-3xl shadow-lg w-full"
             />

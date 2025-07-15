@@ -28,7 +28,7 @@ function Implants() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://images.pexels.com/photos/5355917/pexels-photo-5355917.jpeg"
+              src="/DentalImplant.jpg"
               alt="Dental Implant Procedure"
               className="rounded-3xl shadow-lg w-full"
             />

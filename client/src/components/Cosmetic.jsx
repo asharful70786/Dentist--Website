@@ -28,7 +28,7 @@ const Cosmetic = () => {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://images.pexels.com/photos/16890883/pexels-photo-16890883.png"
+              src="/CosmeticDentistry.jpeg"
               alt="Cosmetic Dentistry"
               className="rounded-3xl shadow-lg w-full"
             />
