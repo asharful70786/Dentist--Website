@@ -8,7 +8,7 @@ export default function VoiceAssistant() {
     script.id = "omnidimension-web-widget";
     script.async = true;
     script.src =
-      "https://backend.omnidim.io/web_widget.js?secret_key=97bb1c01ed11d57761e158f06532d0c1";
+      "https://backend.omnidim.io/web_widget.js?secret_key=BAl";
 
     script.onload = () => setReady(true);
     document.body.appendChild(script);
