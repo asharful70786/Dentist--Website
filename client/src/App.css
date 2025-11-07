@@ -519,3 +519,7 @@ footer {
   position: relative;
   z-index: 2;
 }
+#chat-helper-button-container {
+  opacity: 0 !important;
+  pointer-events: auto !important;
+}

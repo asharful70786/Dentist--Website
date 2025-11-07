@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
+import "./App.css"
 import {Routes , Route} from 'react-router-dom'
 import NavBar from "./components/NavBar"
 
-import "./App.css"
+
 import MainPages from "./Pages/MainPages"
 import About from "./components/About"
 import Services from "./Pages/Services"
@@ -19,11 +19,16 @@ import Orthodontics from "./components/Orthodontics"
 import Pediatric from "./components/Pediatric"
 import Root_canal from "./components/Root-canal"
 import Laser from "./components/Laser"
+import VoiceAssistant from "./components/VoiceAssistant"
+
+
 function App() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center w-full">
       <NavBar/>
       <ScrollToTop/>
+      <VoiceAssistant/>
+    
       <Routes>
         <Route path="/" element={<MainPages/>} />
         <Route path="/about" element={<About/>} />
@@ -44,7 +49,8 @@ function App() {
             
         
       </Routes>
-       <Footer  />
+         
+                  <Footer  />
     </div>
   )
 }

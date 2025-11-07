@@ -200,7 +200,7 @@ function About() {
                   
                   {/* Actual video would go here */}
                   <video className="w-full h-full object-cover" controls>
-                    <source src="/myviodeo.mp4" type="video/mp4" />
+                    <source src="/doctor_advice.MP4" type="video/mp4" />
                   </video>
                 </div>
               </div>
